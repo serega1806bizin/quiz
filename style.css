@@ -1,0 +1,1113 @@
+      :root {
+        --bg: #121212;
+        --panel: #0f1720cc;
+        --card: #0c1220;
+        --stroke: #d9d9d9;
+        --stroke2: rgba(255, 255, 255, 0.08);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.68);
+        --muted2: rgba(255, 255, 255, 0.55);
+        --blue: #2ea3ff;
+        --blue2: #1573ff;
+        --danger: #ff3b3b;
+        --shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+
+        --blue-500: #007bff;
+        --blue-400: #2ea3ff;
+
+        --glass-stroke: rgba(255, 255, 255, 0.35);
+        --glass-stroke-soft: rgba(255, 255, 255, 0.2);
+
+        --glow-strong: rgba(0, 123, 255, 0.65);
+        --glow-soft: rgba(0, 123, 255, 0.35);
+
+        --radius-lg: 18px;
+        --radius-pill: 999px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Arial;
+        font-family: "Onest", system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, Arial, sans-serif;
+
+        background: var(--bg);
+        color: var(--text);
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+      }
+
+      .wrap {
+        width: min(1300px, 100%);
+        border-radius: 18px;
+        padding: 9px 11px;
+
+        /* внешнее свечение */
+        box-shadow: 0 0 21px rgba(0, 123, 255, 0.54);
+
+        /* градиент вместо картинки */
+        background: linear-gradient(0deg, #000 0%, #003b73 40%, #007bff 100%);
+      }
+
+      .wrap1 {
+        width: min(1300px, 100%);
+      }
+
+      .frame {
+        border-radius: 9px;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.35);
+        padding: 33px;
+      }
+
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 640px;
+        gap: 42px;
+      }
+
+      .final-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 640px;
+        gap: 22px;
+      }
+
+      /* Left */
+      .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      h1 {
+        max-width: 520px; /* как блок с вариантами */
+        margin: 0 auto 28px; /* центр + отступ снизу */
+        text-align: center;
+
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 1.15; /* важный момент */
+        letter-spacing: 0.2px;
+      }
+
+      .options {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 10px;
+        max-width: 520px;
+      }
+
+      .opt {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        cursor: pointer;
+      }
+
+      .opt:active {
+        transform: scale(0.995);
+      }
+
+      .radio {
+        width: 42px;
+        height: 42px;
+        border-radius: 91px;
+        border: 1px solid #007bff;
+        position: relative;
+        flex: 0 0 42px;
+      }
+
+      .opt[data-checked="true"] .radio {
+        border-color: rgba(46, 163, 255, 0.95);
+        box-shadow: 0 0 0 4px rgba(46, 163, 255, 0.14);
+      }
+
+      .opt[data-checked="true"] .radio::after {
+        content: "";
+        position: absolute;
+        inset: 11px;
+        border-radius: 999px;
+        background: rgb(0, 123, 255);
+      }
+
+      .opt span {
+        font-size: 30px;
+        color: var(--text);
+      }
+
+      @media (max-width: 1200px) {
+        .opt span {
+          font-size: 24px;
+        }
+        .frame {
+          padding: 20px;
+        }
+        h1{
+          font-size: 32px;
+        }
+        .radio {
+        width: 30px;
+        height: 30px;
+        border-radius: 91px;
+        border: 1px solid #007bff;
+        position: relative;
+        flex: 0 0 30px;
+      }
+            .opt[data-checked="true"] .radio::after {
+
+        inset: 8px;
+
+      }
+      }
+
+      .nav {
+        margin-top: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 17px;
+        max-width: 520px;
+      }
+
+.btn {
+  position: relative; /* ЯКОРЬ */
+  overflow: hidden;
+  width: 155px;
+  height: 56px;
+  padding: 0 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #fff;
+  font-size: 14px;
+  background: linear-gradient(180deg, #1a8cff, #0066e6);
+  box-shadow:
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.4),
+    0 10px 30px rgba(0, 123, 255, 0.45);
+}
+
+.btn-back {
+    position: relative; /* ЯКОРЬ */
+  overflow: hidden;
+  all: unset; 
+  height: 56px;
+  width: 113px;
+  font-family: inherit;
+    font-size: 14px;
+  font-weight: 700;
+}
+
+.btn::before {
+  content: "";
+  position: absolute; /* ✅ ОБЯЗАТЕЛЬНО */
+
+  top: -20%;
+  left: -40%;
+
+  width: 40%;
+  height: 140%;
+
+  background: #7ABAEB;
+  opacity: 0.8;
+
+  transform: skewX(-20deg);
+
+  animation: shine 3.5s ease-in infinite;
+}
+
+
+@keyframes shine {
+  0% {
+    transform: translateX(-420%) skewX(-20deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.8;
+  }
+
+  35% {
+    transform: translateX(420%) skewX(-20deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(420%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+
+
+
+      .btn {
+        transition: opacity 0.2s ease, transform 0.15s ease;
+      }
+
+      .btn:disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      .btn:not(:disabled):hover {
+        transform: translateY(-1px);
+      }
+
+      .btn:active {
+        transform: scale(0.995);
+      }
+
+      .btnPrimary {
+        background: linear-gradient(
+          90deg,
+          rgba(46, 163, 255, 0.85),
+          rgba(21, 115, 255, 0.9)
+        );
+        border-color: rgba(46, 163, 255, 0.35);
+      }
+
+      .btnPrimary:hover {
+        background: linear-gradient(
+          90deg,
+          rgba(46, 163, 255, 0.95),
+          rgba(21, 115, 255, 0.98)
+        );
+      }
+
+      .btn[disabled] {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .intro {
+        background-image: url("bg1.png");
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        border-radius: 6px;
+        box-shadow: 0 0 9.8px 0 rgba(0, 123, 255, 1);
+      }
+
+      .right {
+        /* padding: 18px; */
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        min-height: 640px;
+      }
+
+      .card {
+        color: #0b0f14;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 10.7);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 0;
+        background-color: #fff;
+        padding: 7px;
+        gap: 46px;
+      }
+
+      .hero {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 18px 18px 0;
+        position: relative;
+        min-height: 320px;
+      }
+
+      .person img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;       /* 🔥 ключевое */
+  object-position: center top; /* 🔥 лицо выше, низ обрезается */
+
+  display: block;
+}
+
+      .person {
+        position: relative;
+        width: min(270px, 70%);
+        aspect-ratio: 3 / 4;
+
+        display: flex;
+        align-items: flex-end; /* 👈 прижимаем вниз */
+        justify-content: center;
+
+        overflow: hidden; /* 👈 обрезка как в Figma */
+        border-radius: 18px 18px 0 0;
+      }
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+
+  transform: skewX(-14deg);
+  border-radius: 8px 6px 10px 6px;
+}
+
+.label span {
+  transform: skewX(14deg);
+  display: block;
+}
+
+
+.label--name {
+  position: absolute;
+  bottom: 46px;
+  left: 4px;
+  z-index: 2;
+
+  color: #fff;
+  background: linear-gradient(180deg, #4da2ff, #1b7cff);
+}
+
+
+.label--role {
+  position: absolute;
+  bottom: 18px;
+  left: 14px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  color: #0b0f14;
+  background: #fff;
+
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+}
+
+
+
+.pitch {
+  position: relative;
+
+  padding: 48px 20px; /* ⬅️ аккуратная высота */
+  background-image: url("bg2.png");
+  background-size: cover;
+  background-position: center;
+
+  color: #fff;
+  text-align: center;
+
+  border-radius: 6px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25),
+    0 12px 30px rgba(0, 90, 180, 0.35);
+}
+
+.pitch__inner {
+  max-width: 520px; /* ⬅️ ключ к «ровному» виду */
+  margin: 0 auto;
+
+  font-weight: 800;
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.25;
+}
+
+.pitch small {
+  display: block;
+  margin-top: 6px;
+
+  font-size: clamp(14px, 1.8vw, 16px);
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+
+.benefitsTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0D0101;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.benefitsRow {
+    background-image: url("bg3.png");
+  background-size: fill;
+  background-position: center;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  border-radius: 12px;
+}
+
+.benefit {
+  background: #f8fbff;
+  border-radius: 8px;
+  padding: 0 0 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b0f14;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 123, 255, 0.18),
+    0 6px 16px rgba(0, 123, 255, 0.15);
+}
+
+.benefit__img {
+  height: 96px;              /* ⬅️ ВАЖНО — размер как в макете */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefit__img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;       /* 🔥 не обрезает */
+}
+
+.benefit-media {
+  position: relative;
+  width: 100%;
+  height: 90px; /* ⬅️ регулируй под макет */
+}
+
+.gift {
+  position: absolute;
+  object-fit: contain;
+}
+
+/* Логотип слева */
+.gift--logo {
+  left: 6px;
+  bottom: 0%;
+  width: 40%;
+}
+
+/* Основной флакон по центру */
+.gift--aroma {
+  left: 20%;
+  bottom:  0%;
+  width: 40%;
+  z-index: 2;
+}
+
+/* Свечи справа */
+.gift--candle {
+  right: 4px;
+  width: 50%;
+  bottom:  -5%;
+  z-index: 3;
+}
+
+
+      /* Final panel (Step 5) */
+      .finalTitle {
+        font-size: clamp(22px, 2.4vw, 34px);
+        margin: 0 0 10px;
+        font-weight: 900;
+        color: #fff;
+      }
+
+      .finalSubtitle {
+        margin: 0 0 14px;
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 600;
+      }
+
+      .finalCard {
+        background: rgba(255, 255, 255, 0.92);
+        color: #0b0f14;
+        border-radius: var(--radius);
+        padding: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+      }
+
+      .channelRow {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .chip {
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        background: rgba(0, 0, 0, 0.03);
+        border-radius: 14px;
+        padding: 10px 10px;
+        cursor: pointer;
+        text-align: center;
+        font-weight: 800;
+        font-size: 12px;
+        user-select: none;
+        transition: transform 0.08s ease, background 0.12s ease,
+          border-color 0.12s ease;
+      }
+
+      .chip:hover {
+        background: rgba(21, 115, 255, 0.08);
+        border-color: rgba(21, 115, 255, 0.2);
+      }
+
+      .chip[data-on="true"] {
+        background: rgba(21, 115, 255, 0.14);
+        border-color: rgba(21, 115, 255, 0.35);
+        box-shadow: 0 0 0 4px rgba(21, 115, 255, 0.1);
+      }
+
+      .phoneRow {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin: 10px 0 10px;
+      }
+
+      .flag {
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 12px;
+        padding: 10px 12px;
+        background: rgba(0, 0, 0, 0.03);
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .input {
+        flex: 1;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 14px;
+        padding: 12px 12px;
+        font-size: 16px;
+        outline: none;
+        background: #fff;
+      }
+
+      .input:focus {
+        border-color: rgba(21, 115, 255, 0.45);
+        box-shadow: 0 0 0 4px rgba(21, 115, 255, 0.12);
+      }
+
+      .agree {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        margin: 6px 0 12px;
+        font-size: 13px;
+        color: rgba(11, 15, 20, 0.78);
+        font-weight: 650;
+      }
+
+      .agree input {
+        margin-top: 3px;
+      }
+
+      .finalBtn {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        border-radius: 999px;
+        padding: 14px 16px;
+        font-weight: 900;
+        color: #fff;
+        background: linear-gradient(
+          90deg,
+          rgba(46, 163, 255, 0.9),
+          rgba(21, 115, 255, 0.96)
+        );
+        box-shadow: 0 16px 34px rgba(21, 115, 255, 0.22);
+        transition: transform 0.08s ease, filter 0.12s ease, opacity 0.12s ease;
+      }
+
+      .finalBtn:hover {
+        filter: brightness(1.03);
+      }
+
+      .finalBtn:active {
+        transform: scale(0.995);
+      }
+
+      .finalBtn[disabled] {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+
+      .mini {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.78);
+        margin-top: 10px;
+        text-align: center;
+        font-weight: 650;
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.75);
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+        font-weight: 700;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.18s ease, transform 0.18s ease;
+      }
+
+      .toast.on {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-6px);
+      }
+
+      /* Responsive */
+      @media (max-width: 810px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .right {
+          border-left: none;
+          border-top: 1px solid var(--stroke);
+          min-height: unset;
+        }
+
+        .left {
+          padding: 22px;
+        }
+
+        .wrap {
+          padding: 12px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        body {
+          padding: 12px;
+        }
+
+        .left {
+          padding: 18px;
+        }
+
+        .options {
+          gap: 10px;
+        }
+
+        .opt {
+          padding: 11px 12px;
+        }
+
+        .opt span {
+          font-size: 15px;
+        }
+
+        .nav {
+          max-width: 100%;
+        }
+
+        .btn {
+          min-width: 96px;
+          padding: 11px 14px;
+        }
+
+        .benefitsRow {
+          grid-template-columns: 1fr;
+        }
+
+        .channelRow {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .phoneRow {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .flag {
+          text-align: center;
+        }
+      }
+
+      .quiz-progress {
+        position: relative;
+        height: 36px;
+        border-radius: 999px;
+        background: #ffffff;
+        overflow: hidden;
+
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08),
+          0 6px 16px rgba(0, 0, 0, 0.12);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 20px 38px;
+      }
+
+.quiz-progress__fill {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  bottom: 6px;
+
+  width: 10%;
+  border-radius: 999px;
+
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.35) 0px,
+      rgba(255, 255, 255, 0.35) 10px,
+      rgba(255, 255, 255, 0) 10px,
+      rgba(255, 255, 255, 0) 20px
+    ),
+    linear-gradient(135deg, #7bbae6, #67b0d6);
+
+  background-size:
+    55px 40px,   /* ⬅️ ВАЖНО для полос */
+    100% 100%;
+
+  background-position:
+    0 0,
+    0 0;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 8px 20px rgba(79, 176, 255, 0.45);
+
+  animation: stripesMove 1.9s linear infinite;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes stripesMove {
+  from {
+    background-position:
+      0 0,
+      0 0;
+  }
+
+  to {
+    background-position:
+      55px 0,   /* ⬅️ сдвигаем ТОЛЬКО полосы */
+      0 0;
+  }
+}
+
+      .quiz-progress__text {
+        position: relative;
+        z-index: 2;
+        font-weight: 500;
+        font-size: 16px;
+        color: #000;
+      }
+
+      .opt {
+        transition: transform 0.12s ease, background 0.12s ease;
+      }
+
+      .opt[data-checked="true"] {
+        animation: optPop 0.18s ease;
+      }
+
+      @keyframes optPop {
+        0% {
+          transform: scale(1);
+        }
+        60% {
+          transform: scale(1.025);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      #questionTitle,
+      .options {
+        transition: opacity 0.18s ease, transform 0.18s ease;
+      }
+
+      .fade-out {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+
+.final-left {
+  background-image: url("bg.png");
+  border-radius: 18px;
+  padding: 9px;
+  box-shadow: 0 0 60px rgba(0, 123, 255, 0.76);
+}
+
+.final-frame {
+          border-radius: 9px;
+        box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.65);
+        padding: 0 34px 38px;
+        overflow: hidden;
+}
+
+.final-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+
+
+.final-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.final-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 24px;
+  padding: 3px;
+  border-radius: 12px;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #eaf3ff 45%,
+    #5fa9e6 100%
+  );
+
+
+  box-shadow:
+    0 0 0 1px rgba(0, 123, 255, 0.35),
+    0 6px 20px rgba(0, 123, 255, 0.25);
+
+  color: #0b0f14;
+}
+
+.fw500{
+  font-weight: 500;
+}
+
+.fwg{
+  color: #15FF00;
+  font-weight: 500;
+}
+
+.fww{
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+
+.final-item img {
+  position: relative;
+  flex: 0 0 7px;
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Контент */
+.final-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Заголовок */
+.final-item__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-weight: 500;
+  font-size: 24px;
+}
+
+/* Галочка */
+.final-item__title .check {
+  color: #19c37d;
+  font-size: 18px;
+}
+
+/* Текст */
+.final-item__text {
+  margin: 0;
+  font-size: 23px;
+  line-height: 1.35;
+  color: #1a1a1a;
+}
+
+
+.final-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.final-item.gift .final-icon {
+  background: #facc15;
+}
+
+.b{
+  color: #000;
+  margin-left: 17px;
+}
+
+/* TIMER */
+.timer {
+  padding: 14px;
+    background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ffffff 50%,
+    #FF0000 100%
+  );
+  display: flex;
+  justify-content: space-between;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.timer-box {
+  font-size: 22px;
+  background: #fff;
+  color: #000;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* RIGHT */
+.final-right {
+  background: #5aa2f2;
+  border-radius: 18px;
+  padding: 28px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.final-right-title {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.final-sub {
+  opacity: .9;
+}
+
+.channels {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.channel {
+  padding: 10px;
+  border-radius: 10px;
+  background: #fff;
+  color: #000;
+  font-size: 13px;
+}
+
+.channel.active {
+  background: #22d3ee;
+  color: #000;
+}
+
+.phone-input {
+  height: 52px;
+  border-radius: 999px;
+  border: none;
+  padding: 0 20px;
+  font-size: 16px;
+}
+
+.agree {
+  font-size: 13px;
+}
+
+.final-btn {
+  height: 60px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #2563eb, #1d4ed8);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.social-proof {
+  opacity: .85;
+  text-align: center;
+}
+
+.timer__digits {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Блок цифры */
+.digit {
+  min-width: 44px;
+  padding: 6px 10px;
+
+  text-align: center;
+  font-size: 22px;
+  font-weight: 900;
+
+  background: #ffffff;
+  color: #0b0f14;
+
+  border-radius: 6px;
+  box-shadow:
+    inset 0 -2px 0 rgba(0,0,0,.08),
+    0 4px 10px rgba(0,0,0,.18);
+}
+
+/* Двоеточие */
+.colon {
+  font-size: 22px;
+  font-weight: 900;
+  color: #000000;
+}
+

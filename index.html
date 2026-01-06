@@ -1,11 +1,459 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  Тут буде демо з квізом
-</body>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Квіз прибирання</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style></style>
+  </head>
+  <body>
+    <div class="wrap" id="wrap">
+      <div class="frame">
+        <div class="grid">
+          <section class="left">
+            <div class="quiz-progress" id="progressBar">
+              <div class="quiz-progress__fill" id="progressFill"></div>
+
+              <div class="quiz-progress__text" id="stepLabel">
+                Ви відповідаєте на питання 1 з 4
+              </div>
+            </div>
+
+            <h1 id="questionTitle">
+              <span class="line1">Де потрібно</span>
+              <span class="line2">зробити прибирання?</span>
+            </h1>
+
+            <div class="options" id="options"></div>
+
+            <div class="nav">
+              <button class="btn-back" id="btnBack" type="button">Назад</button>
+
+              <button class="btn btn-next" id="btnNext" type="button">
+                Далі →
+              </button>
+            </div>
+          </section>
+
+          <aside class="right" id="rightPanel">
+            <div class="card" id="defaultCard">
+              <div class="intro">
+                <div class="hero">
+                  <div class="person">
+                    <img src="men.png" alt="Менеджер" />
+
+                    <div class="label label--name">
+                      <span>Максим</span>
+                    </div>
+
+                    <div class="label label--role">
+                      <span>Менеджер “Партнер Клін”</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pitch">
+                  <div class="pitch__inner">
+                    Дайте відповідь на запитання,
+                    <small>щоб ми могли розрахувати вартість</small>
+                  </div>
+                </div>
+              </div>
+              <div class="benefits">
+                <div class="benefitsTitle">В кінці теста ви отримаєте:</div>
+
+                <div class="benefitsRow">
+                  <div class="benefit">
+                    <div class="benefit__img">
+                      <img src="b1.avif" alt="" />
+                    </div>
+                    <span>
+                      Розрахунок вартості<br />
+                      та строків роботи
+                    </span>
+                  </div>
+
+                  <div class="benefit">
+                    <div class="benefit__img">
+                      <img src="b2.avif" height="74" alt="" />
+                    </div>
+                    <span>Знижку 10%<br />на перше прибирання</span>
+                  </div>
+
+                  <div class="benefit">
+                    <div class="benefit-media benefit-media--gifts">
+                      <img src="b3.avif" class="gift gift--logo" alt="" />
+                      <img src="b4.avif" class="gift gift--aroma" alt="" />
+                      <img src="b5.avif" class="gift gift--candle" alt="" />
+                    </div>
+
+                    <span>1 з 3<br />подарунків на вибір</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div> 
+
+    <div class="wrap1" id="wrap1"></div>
+      <div class="final-grid">
+        <section class="final-left">
+          <div class="final-frame">
+            <h2 class="final-title">
+              Дякуємо що зекономили наш час!<br />
+              <span>За це ви отримаєте:</span>
+            </h2>
+
+            <div class="final-list">
+              <div class="final-item">
+                  <img src="calc.png" alt="Розрахунок" />
+
+                <div class="final-item__content">
+                  <div class="final-item__title">
+                    <span class="check"><img src="check-circle.svg" alt=""></span>
+                    Розрахунок вартості
+                  </div>
+
+                  <p class="final-item__text">
+                    в деталях <span class="fw500">під ваш бюджет</span> <br />
+                    + строки <span class="fw500">всіх етапів роботи</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="final-item">
+                  <img src="m1.png" alt="Розрахунок" />
+
+                <div class="final-item__content">
+                  <div class="final-item__title">
+                    <span class="check"><img src="check-circle.svg" alt=""></span>
+                    Безкоштовна консультація
+                  </div>
+
+                  <p class="final-item__text">
+                    Допоможемо визначитись <br />
+                    дамо <span class="fw500">відповіді на всі запитання</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="final-item">
+                  <img src="c1.png" alt="Розрахунок" />
+
+                <div class="final-item__content">
+                  <div class="final-item__title">
+                    <span class="check"><img src="check-circle.svg" alt=""></span>
+                    Повний супровід
+                  </div>
+
+                  <p class="final-item__text">
+                   <span class="fw500">Виїзд бригадира</span> на огляд обєкту<br />
+                     <span class="fw500">за наш рахунок</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="final-item">
+                  <img src="s1.png" alt="Розрахунок" />
+
+                <div class="final-item__content">
+                  <div class="final-item__title">
+                    <span class="check"><img src="check-circle.svg" alt=""></span>
+                    Подарунок на вибір
+                  </div>
+
+                  <p class="final-item__text">
+                    Виберіть 1 з 3 подарунків: <br />
+                    <span class="fwg">мило, </span><span class="fw500">крем для рук </span><span class="fww">або свічка </span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="timer">
+                <img src="clock.png" alt="Розрахунок" />
+
+                <div class="final-item__content">
+                  <div class="final-item__title b">
+                    <strong>Ваш подарунок<br />зникне через:</strong>
+                  </div>
+                </div>
+                <div class="timer__digits">
+                  <div class="digit" id="min">15</div>
+                  <div class="colon">:</div>
+                  <div class="digit" id="sec">00</div>
+                </div>
+          </div>
+        </section>
+
+        <aside class="final-right">
+          <div class="final-frame">
+
+          <h2 class="final-right-title">
+            Ваш розрахунок<br />вартості готовий!
+          </h2>
+
+          <p class="final-sub">Де вам зручніше отримати результат?</p>
+
+          <div class="channels">
+            <button class="channel active">📞 Телефон</button>
+            <button class="channel">WhatsApp</button>
+            <button class="channel">Telegram</button>
+            <button class="channel">Viber</button>
+          </div>
+
+          <input
+            class="phone-input"
+            type="tel"
+            placeholder="+380 __ ___ __ __"
+          />
+
+          <label class="agree">
+            <input type="checkbox" checked />
+            Я погоджуюсь з <a href="#">політикою конфіденційності</a>
+          </label>
+
+          <button class="final-btn">
+            🎁 Отримати точний розрахунок вартості
+          </button>
+
+          <small class="social-proof">
+            Вже <b>22 472</b> людини скористалось послугами «Партнер Клін»
+          </small>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <script>
+      /* ================= CONFIG ================= */
+
+      const STEPS = [
+        {
+          key: "place",
+          title: "Де потрібно<br>зробити прибирання?",
+          options: [
+            { label: "Квартира", value: "apartment" },
+            { label: "Приватний будинок", value: "house" },
+            { label: "Офіс/комерційне приміщення", value: "office" },
+            { label: "Двір/Будівництво", value: "yard" },
+            { label: "Інше", value: "other" },
+          ],
+        },
+        {
+          key: "service",
+          title: "Яке прибирання вам потрібно зараз?",
+          options: [
+            { label: "Генеральне прибирання", value: "general" },
+            { label: "Після ремонту", value: "after_renovation" },
+            { label: "Хімчистка меблів/килимів", value: "dry_cleaning" },
+            { label: "Миття вікон", value: "windows" },
+            { label: "Інше", value: "other" },
+          ],
+        },
+        {
+          key: "area",
+          title: "Яка площа приміщення (приблизно)?",
+          options: [
+            { label: "До 40м²", value: "0-40" },
+            { label: "40–80м²", value: "40-80" },
+            { label: "80–150м²", value: "80-150" },
+            { label: "Більше 150м²", value: "150+" },
+            { label: "Не знаю / допоможіть визначити", value: "unknown" },
+          ],
+        },
+        {
+          key: "urgency",
+          title: "Як швидко вам потрібно виконати прибирання?",
+          options: [
+            { label: "Сьогодні", value: "today" },
+            { label: "Протягом 1–2 днів", value: "1-2days" },
+            { label: "На вихідних", value: "weekend" },
+            { label: "Протягом тижня", value: "week" },
+            { label: "Не терміново", value: "not_urgent" },
+          ],
+        },
+      ];
+
+      const ANIMATION = {
+        OUT: 120,
+        IN: 120,
+        LOCK: 220,
+      };
+
+      const PROGRESS_MAX = 85;
+
+      /* ================= STATE ================= */
+
+      const state = {
+        stepIndex: 0,
+        isLocked: false,
+        answers: Object.fromEntries(STEPS.map((s) => [s.key, null])),
+      };
+
+      /* ================= DOM ================= */
+
+      const wrap = document.getElementById("wrap");
+      const wrap1 = document.getElementById("wrap1");
+      wrap1.style.display = "none";
+      const questionTitle = document.getElementById("questionTitle");
+      const optionsEl = document.getElementById("options");
+      const btnNext = document.getElementById("btnNext");
+      const btnBack = document.getElementById("btnBack");
+
+      const progressFill = document.getElementById("progressFill");
+      const stepLabel = document.getElementById("stepLabel");
+
+      /* ================= HELPERS ================= */
+
+      function setProgress() {
+        const current = state.stepIndex + 1;
+        const total = STEPS.length;
+
+        const percent = (current / total) * PROGRESS_MAX;
+        progressFill.style.width = `calc(${percent}% - 12px)`;
+        stepLabel.textContent = `Ви відповідаєте на питання ${current} з ${total}`;
+      }
+
+      function lockUI(ms = ANIMATION.LOCK) {
+        state.isLocked = true;
+        setTimeout(() => (state.isLocked = false), ms);
+      }
+
+      function canGoNext() {
+        const step = STEPS[state.stepIndex];
+        return Boolean(state.answers[step.key]);
+      }
+
+      /* ================= RENDER ================= */
+
+      function renderOptions(step) {
+        optionsEl.innerHTML = "";
+
+        step.options.forEach((opt) => {
+          const el = document.createElement("div");
+          el.className = "opt";
+          el.dataset.checked = String(state.answers[step.key] === opt.value);
+
+          el.innerHTML = `
+        <div class="radio"></div>
+        <span>${opt.label}</span>
+      `;
+
+          el.addEventListener("click", () => {
+            if (state.isLocked) return;
+
+            state.answers[step.key] = opt.value;
+
+            [...optionsEl.children].forEach(
+              (o) => (o.dataset.checked = "false")
+            );
+            el.dataset.checked = "true";
+
+            goNext();
+          });
+
+          optionsEl.appendChild(el);
+        });
+      }
+
+      function renderStep() {
+        questionTitle.classList.add("fade-out");
+        optionsEl.classList.add("fade-out");
+
+        setTimeout(() => {
+          if (state.stepIndex >= STEPS.length) {
+            wrap.style.display = "none";
+              wrap1.style.display = "block";
+
+            return;
+          }
+
+          const step = STEPS[state.stepIndex];
+
+          questionTitle.innerHTML = step.title;
+          renderOptions(step);
+          setProgress();
+
+          questionTitle.classList.remove("fade-out");
+          optionsEl.classList.remove("fade-out");
+
+          questionTitle.classList.add("fade-in");
+          optionsEl.classList.add("fade-in");
+        }, ANIMATION.OUT);
+      }
+
+      /* ================= NAVIGATION ================= */
+
+      function goNext() {
+        if (state.isLocked || !canGoNext()) return;
+
+        lockUI();
+        state.stepIndex++;
+        renderStep();
+      }
+
+      function goBack() {
+        if (state.stepIndex === 0 || state.isLocked) return;
+
+        state.stepIndex--;
+        renderStep();
+      }
+
+      /* ================= EVENTS ================= */
+
+      btnNext.addEventListener("click", goNext);
+      btnBack.addEventListener("click", goBack);
+
+      /* ================= INIT ================= */
+
+      renderStep();
+
+        const TIMER_MINUTES = 15;
+  const STORAGE_KEY = "quiz_timer_end";
+
+  const minEl = document.getElementById("min");
+  const secEl = document.getElementById("sec");
+
+  let endTime = localStorage.getItem(STORAGE_KEY);
+
+  // Если таймер ещё не запускался — запускаем
+  if (!endTime) {
+    endTime = Date.now() + TIMER_MINUTES * 60 * 1000;
+    localStorage.setItem(STORAGE_KEY, endTime);
+  } else {
+    endTime = Number(endTime);
+  }
+
+  function updateTimer() {
+    const now = Date.now();
+    const diff = endTime - now;
+
+    if (diff <= 0) {
+      minEl.textContent = "00";
+      secEl.textContent = "00";
+
+      return;
+    }
+
+    const minutes = Math.floor(diff / 1000 / 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    minEl.textContent = String(minutes).padStart(2, "0");
+    secEl.textContent = String(seconds).padStart(2, "0");
+  }
+
+
+  updateTimer();
+  const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+  </body>
 </html>
