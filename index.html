@@ -104,7 +104,7 @@
       </div>
     </div> 
 
-    <div class="wrap1" id="wrap1"></div>
+    <div class="wrap1" id="wrap1">
       <div class="final-grid">
         <section class="final-left">
           <div class="final-frame">
@@ -322,6 +322,42 @@
         progressFill.style.width = `calc(${percent}% - 12px)`;
         stepLabel.textContent = `Ви відповідаєте на питання ${current} з ${total}`;
       }
+function startTimer() {
+  const TIMER_MINUTES = 15;
+  const STORAGE_KEY = "quiz_timer_end";
+
+  const minEl = document.getElementById("min");
+  const secEl = document.getElementById("sec");
+
+  let endTime = localStorage.getItem(STORAGE_KEY);
+
+  if (!endTime) {
+    endTime = Date.now() + TIMER_MINUTES * 60 * 1000;
+    localStorage.setItem(STORAGE_KEY, endTime);
+  } else {
+    endTime = Number(endTime);
+  }
+
+  function updateTimer() {
+    const diff = endTime - Date.now();
+
+    if (diff <= 0) {
+      minEl.textContent = "00";
+      secEl.textContent = "00";
+      clearInterval(timerInterval);
+      return;
+    }
+
+    const minutes = Math.floor(diff / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+
+    minEl.textContent = String(minutes).padStart(2, "0");
+    secEl.textContent = String(seconds).padStart(2, "0");
+  }
+
+  updateTimer();
+  const timerInterval = setInterval(updateTimer, 1000);
+}
 
       function lockUI(ms = ANIMATION.LOCK) {
         state.isLocked = true;
@@ -373,7 +409,7 @@
           if (state.stepIndex >= STEPS.length) {
             wrap.style.display = "none";
               wrap1.style.display = "block";
-
+              startTimer();
             return;
           }
 
@@ -417,8 +453,7 @@
 
       renderStep();
 
-        const TIMER_MINUTES = 15;
-  const STORAGE_KEY = "quiz_timer_end";
+
 
   const minEl = document.getElementById("min");
   const secEl = document.getElementById("sec");
@@ -433,27 +468,8 @@
     endTime = Number(endTime);
   }
 
-  function updateTimer() {
-    const now = Date.now();
-    const diff = endTime - now;
-
-    if (diff <= 0) {
-      minEl.textContent = "00";
-      secEl.textContent = "00";
-
-      return;
-    }
-
-    const minutes = Math.floor(diff / 1000 / 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    minEl.textContent = String(minutes).padStart(2, "0");
-    secEl.textContent = String(seconds).padStart(2, "0");
-  }
 
 
-  updateTimer();
-  const timerInterval = setInterval(updateTimer, 1000);
     </script>
   </body>
 </html>
