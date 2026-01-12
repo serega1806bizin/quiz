@@ -195,7 +195,9 @@
 
                 <div class="final-item__content">
                   <div class="final-item__title b">
-                    <strong>Ваш подарунок <br class="SSS" />зникне через:</strong>
+                    <strong
+                      >Ваш подарунок <br class="SSS" />зникне через:</strong
+                    >
                   </div>
                 </div>
                 <div class="timer__digits">
@@ -332,11 +334,15 @@
               </div>
               <div class="phone-wrapper">
                 <img class="flag1" src="icons/Ukraine.svg" alt="UA" />
+
                 <input
                   class="phone-input"
+                  id="phoneInput"
                   type="tel"
+                  inputmode="numeric"
                   placeholder="+380 __ ___ __ __"
                 />
+                <small class="phone-error" id="phoneError"></small>
               </div>
 
               <label class="agree">
@@ -668,13 +674,88 @@
       }
     </script>
     <script>
-      const channels = document.querySelectorAll(".channel");
+      const input = document.getElementById("phoneInput");
+      const errorEl = document.getElementById("phoneError");
 
-      channels.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          channels.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-        });
+      const PREFIX = "+380";
+      const MAX_DIGITS = 12; // 380 + 9 цифр
+
+      function formatUA(value) {
+        let digits = value.replace(/\D/g, "");
+
+        if (!digits.startsWith("380")) {
+          digits = "380" + digits.replace(/^380/, "");
+        }
+
+        digits = digits.slice(0, MAX_DIGITS);
+
+        let result = "+380";
+
+        if (digits.length > 3) result += " " + digits.slice(3, 5);
+        if (digits.length > 5) result += " " + digits.slice(5, 8);
+        if (digits.length > 8) result += " " + digits.slice(8, 10);
+        if (digits.length > 10) result += " " + digits.slice(10, 12);
+
+        return result;
+      }
+
+      // 👉 по клику подставляем +380
+      input.addEventListener("focus", () => {
+        if (input.value.trim() === "") {
+          input.value = PREFIX;
+        }
+      });
+
+      // 👉 форматируем ввод
+      input.addEventListener("input", () => {
+        input.value = formatUA(input.value);
+        validate(false);
+      });
+
+      // 👉 если ушли с поля и введён только +380 — очищаем
+      input.addEventListener("blur", () => {
+        if (input.value === PREFIX) {
+          input.value = "";
+          input.classList.remove("error");
+          errorEl.textContent = "";
+        }
+      });
+
+      // 👉 запрещаем удалять +380
+      input.addEventListener("keydown", (e) => {
+        if (
+          (e.key === "Backspace" || e.key === "Delete") &&
+          input.selectionStart <= 4
+        ) {
+          e.preventDefault();
+        }
+      });
+
+      function validate(showError = true) {
+        const digits = input.value.replace(/\D/g, "");
+
+        const isValid = /^380\d{9}$/.test(digits);
+
+        if (!isValid && showError) {
+          input.classList.add("error");
+          errorEl.textContent = "Введіть коректний номер телефону";
+        } else {
+          input.classList.remove("error");
+          errorEl.textContent = "";
+        }
+
+        return isValid;
+      }
+
+      // Пример: проверка перед отправкой
+      document.querySelector(".cta-btn").addEventListener("click", () => {
+        if (!validate(true)) {
+          input.focus();
+          return;
+        }
+
+        const phone = input.value.replace(/\D/g, "");
+        console.log("Телефон:", phone);
       });
     </script>
   </body>

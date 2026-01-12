@@ -1185,10 +1185,10 @@
 .flag1 {
   position: absolute;
   left: 26px;
-  top: 50%;
+  top: 37px;
   transform: translateY(-50%);
   width: 36px;
-  height: 24px;
+  height: auto;
   object-fit: cover;
   pointer-events: none;
 }
@@ -1202,9 +1202,19 @@
   font-size: 20px;
   font-weight: 600;
   outline: none;
-  color: rgba(0, 0, 0, 0.42);
+  color: rgba(0, 0, 0, 1);
 }
 
+.phone-input.error {
+  border-color: #e53935;
+}
+
+.phone-error {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #e53935;
+}
 
 /* CHECKBOX */
 .agree {
@@ -1448,8 +1458,9 @@ height: 50px;
   
   .flag1 {
     width: 28px;
-    height: 18px;
+    height: auto;
     left: 14px;
+    top: 25px;
   }
 
   .cta-block{
