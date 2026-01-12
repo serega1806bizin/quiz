@@ -1044,9 +1044,6 @@
             .frame {
                 padding: 2px;
             }
-            body {
-                padding: 12px;
-            }
 
             h1 {
                 font-size: 23px;
@@ -1128,7 +1125,7 @@
 .channels {
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:4px;
+  gap:2px;
 }
 
 .channel {
@@ -1151,6 +1148,8 @@
   width:34px;
   height:34px;
 }
+
+
 
 .channel span {
   font-size:16px;
@@ -1212,7 +1211,7 @@
   display:flex;
   align-items:center;
   gap:12px;
-  font-size:22px;
+  font-size: 18px;
   font-weight:600;
   text-wrap: nowrap;
 }
@@ -1357,9 +1356,12 @@
     border-radius: 24px;
   }
 
-  .final-title,
+  .cta-proof{
+    font-size: clamp(10px, 2.8vw, 28px);
+  }
+
   .final-right-title {
-    font-size: clamp(22px, 3.5vw, 28px);
+    font-size: clamp(22px, 8vw, 28px);
     text-align: center;
   }
 
@@ -1392,12 +1394,13 @@ height: 50px;
   .channels {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    gap: 6px;
   }
 
   .channel {
     justify-content: center;
-    padding: 14px;
+    padding: 8px;
+    gap: 6px;
   }
 
   .phone-wrapper {
@@ -1405,8 +1408,7 @@ height: 50px;
   }
 
   .cta-btn {
-    width: 100%;
-    padding: 18px;
+    height: 80px;
   }
 
   .final-item__text{
@@ -1415,4 +1417,49 @@ height: 50px;
   .SSS{
     display: none;
   }
+
+  .agree input {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cta-gift{
+    width: 90px;
+    left: -3px;
+  }
+
+  .channel span {
+    font-size: 10px;
+  }
+
+  .agree {
+    font-size: 3vw;
+  }
+
+  .channel svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .phone-input{
+    height: 50px;
+    padding-left: 60px;
+  }
+  
+  .flag1 {
+    width: 28px;
+    height: 18px;
+    left: 14px;
+  }
+
+  .cta-block{
+        margin-top: 20px;
+  }
+
+  .final-item__title{
+      text-align: right;
+    padding-right: 20px;
+  }
+
+
 }
