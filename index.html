@@ -380,7 +380,6 @@
     </div>
 
     <script>
-      /* ================= CONFIG ================= */
 
       const STEPS = [
         {
@@ -497,7 +496,6 @@
 
       const PROGRESS_MAX = 85;
 
-      /* ================= STATE ================= */
 
       const state = {
         stepIndex: 0,
@@ -505,7 +503,6 @@
         answers: Object.fromEntries(STEPS.map((s) => [s.key, null])),
       };
 
-      /* ================= DOM ================= */
 
       const wrap = document.getElementById("wrap");
       const wrap1 = document.getElementById("wrap1");
@@ -518,7 +515,6 @@
       const progressFill = document.getElementById("progressFill");
       const stepLabel = document.getElementById("stepLabel");
 
-      /* ================= HELPERS ================= */
 
       function setProgress() {
         const current = state.stepIndex + 1;
@@ -576,7 +572,6 @@
         return Boolean(state.answers[step.key]);
       }
 
-      /* ================= RENDER ================= */
 
       function renderOptions(step) {
         optionsEl.innerHTML = "";
@@ -634,7 +629,6 @@
         }, ANIMATION.OUT);
       }
 
-      /* ================= NAVIGATION ================= */
 
       function goNext() {
         if (state.isLocked || !canGoNext()) return;
@@ -651,12 +645,10 @@
         renderStep();
       }
 
-      /* ================= EVENTS ================= */
 
       btnNext.addEventListener("click", goNext);
       btnBack.addEventListener("click", goBack);
 
-      /* ================= INIT ================= */
 
       renderStep();
     </script>
@@ -704,7 +696,7 @@
       const errorEl = document.getElementById("phoneError");
 
       const PREFIX = "+380";
-      const MAX_DIGITS = 12; // 380 + 9 цифр
+      const MAX_DIGITS = 12; 
 
       function formatUA(value) {
         let digits = value.replace(/\D/g, "");
@@ -725,20 +717,17 @@
         return result;
       }
 
-      // 👉 по клику подставляем +380
       input.addEventListener("focus", () => {
         if (input.value.trim() === "") {
           input.value = PREFIX;
         }
       });
 
-      // 👉 форматируем ввод
       input.addEventListener("input", () => {
         input.value = formatUA(input.value);
         validate(false);
       });
 
-      // 👉 если ушли с поля и введён только +380 — очищаем
       input.addEventListener("blur", () => {
         if (input.value === PREFIX) {
           input.value = "";
@@ -747,7 +736,6 @@
         }
       });
 
-      // 👉 запрещаем удалять +380
       input.addEventListener("keydown", (e) => {
         if (
           (e.key === "Backspace" || e.key === "Delete") &&
@@ -773,7 +761,6 @@
         return isValid;
       }
 
-      // Пример: проверка перед отправкой
       document.querySelector(".cta-btn").addEventListener("click", () => {
         if (!validate(true)) {
           input.focus();
