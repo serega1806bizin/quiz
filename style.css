@@ -37,7 +37,6 @@
             font-family: "Onest", system-ui, -apple-system, BlinkMacSystemFont,
                 "Segoe UI", Roboto, Arial, sans-serif;
 
-            background: var(--bg);
             color: var(--text);
             display: flex;
             align-items: center;
@@ -49,7 +48,7 @@
             width: min(1200px, 100%);
             border-radius: 18px;
             padding: 9px 11px;
-
+    margin: 0 15px;
             /* внешнее свечение */
             box-shadow: 0 0 21px rgba(0, 123, 255, 0.54);
 
@@ -59,6 +58,7 @@
 
         .wrap1 {
             width: min(1300px, 100%);
+            margin: 0 15px;
         }
 
         .frame {
@@ -458,7 +458,7 @@
 
         .benefitsRow {
             background-image: url("bg3.png");
-            background-size: fill;
+            background-size: cover;
             background-position: center;
             padding: 20px;
             display: grid;
@@ -814,7 +814,7 @@
         }
 
         .final-frame {
-            border-radius: 9px;
+            border-radius: 14px;
             box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.65);
             padding: 0 34px 38px;
             overflow: hidden;
@@ -873,7 +873,7 @@
         }
 
         .fww {
-            color: #FFFFFF;
+            color: #0b79ff ;
             font-weight: 500;
         }
 
@@ -893,7 +893,9 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
+            position: relative;
         }
+
 
         /* Заголовок */
         .final-item__title {
@@ -950,7 +952,6 @@
             display: flex;
             justify-content: space-between;
             border-radius: 12px;
-            display: flex;
             align-items: center;
         }
 
@@ -962,6 +963,11 @@
             border-radius: 6px;
         }
 
+        @media (max-width: 1166px) {
+            .final-frame {
+                padding: 0 18px 28px;
+            }
+        }
         /* RIGHT */
         .final-right {
             background: #5aa2f2;
@@ -975,7 +981,7 @@
         }
 
         .final-right-title {
-           font-size: clamp(16px, 3vw, 40px);
+           font-size: clamp(16px, 4.5vw, 60px);
             font-weight: 700;
             text-align: center;
         }
@@ -1033,8 +1039,11 @@
 
             .wrap {
                 padding: 12px;
+                margin: 0 5px;
             }
-
+              .wrap1 {
+                margin: 0 5px;
+            }
             .quiz-progress {
                 margin: 0 0 1vh;
             }
@@ -1128,6 +1137,22 @@
   gap:4px;
 }
 
+.channel:nth-child(1) {
+  background-color: #22D2E5;
+}
+
+.channel:nth-child(2) {
+  background-color: #86FEAA;
+}
+
+.channel:nth-child(3) {
+  background-color: #83DAFF;
+}
+
+.channel:nth-child(4) {
+  background-color: #C997EA;
+}
+
 .channel {
     color: #303135; 
   background:#fff;
@@ -1166,16 +1191,10 @@
 
 /* ACTIVE */
 .channel.active {
-  background:#23d6e4;
+ transform:translateY(-4px);
 }
 
-.channel.active span {
-  color:#fff;
-}
 
-.channel.active.tel svg path {
- fill:#fff !important; 
-}
 
 .phone-wrapper {
   position: relative;
@@ -1196,11 +1215,11 @@
 .phone-input {
   width: 100%;
   height: 74px;
-  padding-left: 86px; /* место под флаг */
+  padding-left: 86px;
   border-radius: 999px;
   border: none;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 300;
   outline: none;
   color: rgba(0, 0, 0, 1);
 }
@@ -1221,14 +1240,14 @@
   display:flex;
   align-items:center;
   gap:12px;
-  font-size: 18px;
+  font-size: 1.5vw;
   font-weight:600;
   text-wrap: nowrap;
 }
 
 .agree input {
-  width:26px;
-  height:26px;
+  width:1.4vw;
+  height:1.4vw;
   accent-color:#2cff00;
 }
 
@@ -1251,7 +1270,7 @@
   height: 113px;
   align-items: center;
   gap: 28px;
-
+  padding-left: 40px;
   border: none;
   cursor: pointer;
 
@@ -1280,11 +1299,18 @@
 /* === GIFT ICON === */
 .cta-gift {
   position: absolute;
-  top: -10px;
+  top: -17px;
   left: -5px;
   width: 133px;
   height: auto;
   flex-shrink: 5;
+}
+
+@media (max-width: 1134px) {
+  .cta-gift{
+      width: 90px;
+top: -1px;
+  }
 }
 
 /* === MAIN TEXT === */
@@ -1363,7 +1389,7 @@
 
   .final-frame {
     padding: 14px;
-    border-radius: 24px;
+    border-radius: 14px;
   }
 
   .cta-proof{
@@ -1388,13 +1414,25 @@
   .check {
     display: none;
   }
+.timer {
+  padding: 14px;
+  background: linear-gradient(90deg,
+      #ffffff 0%,
+      #ffffff 50%,
+      #FF0000 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 🔥 50% / 50% */
+  align-items: center;
+  border-radius: 12px;
+}
 
-  .timer {
-height: 50px;
-  }
+.timer__digits {
+  justify-self: end;
+}
 
   .timer.final_item__content {
     text-wrap: nowrap;
+margin-left: auto;
   }
 
   .timer img {
@@ -1424,9 +1462,7 @@ height: 50px;
   .final-item__text{
     display: none;
   }
-  .SSS{
-    display: none;
-  }
+
 
   .agree input {
     width: 20px;
@@ -1436,6 +1472,7 @@ height: 50px;
   .cta-gift{
     width: 90px;
     left: -3px;
+    top: -10px;
   }
 
   .channel span {
@@ -1454,6 +1491,7 @@ height: 50px;
   .phone-input{
     height: 50px;
     padding-left: 60px;
+    font-size: 17px;
   }
   
   .flag1 {
@@ -1467,9 +1505,10 @@ height: 50px;
         margin-top: 20px;
   }
 
-  .final-item__title{
-      text-align: right;
-    padding-right: 20px;
+  .final-item__title.b{
+      align-items: center;
+      text-align: center;
+      text-wrap: nowrap;
   }
 
 
@@ -1547,4 +1586,8 @@ height: 50px;
 
 .success-btn:hover {
   background: #16a34a;
+}
+
+.btn-next {
+  border: none;
 }
